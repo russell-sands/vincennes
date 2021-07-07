@@ -3,6 +3,7 @@ import { useState } from 'react';
 //import { Interact } from './components/Interact';
 import { MapView } from './components/MapView';
 import { ResultPanel } from './components/ResultPanel';
+import './components/styles.css';
 
 function App() {
   const [locData, setLocData] = useState({});

@@ -55,11 +55,6 @@ export const getRiskData2 = (data) => {
   //console.log(metricCategories, Object.keys(metricCategories));
   const bases = Object.keys(basesToName);
 
-  // Bases where agriculture data is returned
-  const basesAg = ['cwav', 'drgt', 'hail', 'rfld', 'swnd'];
-  // Bases where agriculture data is the only data returned
-  const basesAgOnly = ['drgt'];
-
   // Create an object to hold the restructured data
   const restructured = {};
 
@@ -74,9 +69,6 @@ export const getRiskData2 = (data) => {
         frequency: makeCategoryObject('Frequency'),
       },
     };
-    // Flag the aggriculuture conditions for the risk variable
-    restructured[base].hasAgData = basesAg.includes(base);
-    restructured[base].hasAgDataOnly = basesAgOnly.includes(base);
   });
 
   // For each attribute in the feature, parse and populate the returned data
@@ -91,7 +83,7 @@ export const getRiskData2 = (data) => {
     const metricLabel = labelLookup[metric.slice(3)];
     //console.log(k, metric, categoryInfo, metricLabel);
     if (categoryInfo?.category) {
-      console.log(base, categoryInfo.category, metricLabel, metric, data[k]);
+      //console.log(base, categoryInfo.category, metricLabel, metric, data[k]);
       restructured[base].metrics[categoryInfo.category].metrics[metricLabel] = {
         name: metric,
         value: data[k],

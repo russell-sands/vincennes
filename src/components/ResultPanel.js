@@ -6,10 +6,6 @@ import './styles.css';
 
 // TODO: Break what is returned out into components
 
-// Where is this broken? Answer - its broken in the variable info
-// you passed a key from here and that caused the whole thing... you need to move
-// the loop over variables down to within Variable Info
-
 export const ResultPanel = ({ data }) => {
   console.log(data);
   if (Object.keys(data).length > 0) {
@@ -20,7 +16,6 @@ export const ResultPanel = ({ data }) => {
         <div className="sidebar-content">
           <ResultOverview data={data} />
           {Object.keys(riskData).map((riskName) => {
-            //console.log(riskName);
             const riskMetrics = riskData[riskName];
             return (
               <VariableInfo

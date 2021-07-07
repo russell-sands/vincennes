@@ -49,14 +49,14 @@
 
 .cell-is-match {
   opacity: 1;
-  font-size: 1.7rem;
-  width: 32%;
+  font-size: 1.1rem;
+  width: 48%;
 }
 
 .cell-no-match {
   opacity: 0.85;
   font-size: 0.8rem;
-  width: 17%;
+  width: 13%;
 }
 
 .cell-very-high {
@@ -91,11 +91,40 @@
 
 .variable-info {
   margin-top: 15px;
-  background: gray;
   text-align: center;
   color: white;
+  border: 1px solid black;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .variable-header {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.metric-table {
+  text-align: left;
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.metric-table-header {
+  background: black;
+  color: white;
+}
+
+.metric-table-row {
+  border: 1px solid black;
+  background: white;
+  color: black;
+}
+
+.metric-table-metric {
+  padding-left: 5px;
+}
+
+.metric-table-value {
+  padding-right: 5px;
+  text-align: right;
 }

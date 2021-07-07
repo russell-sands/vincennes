@@ -1,13 +1,12 @@
 import React from 'react';
 import { MetricTableRow } from './MetricTableRow';
 
-export const MetricTable = ({ variable, metricData, metricPrefix }) => {
+export const MetricTable = ({ variable, metricData }) => {
   const { header, metrics, format } = metricData;
-  //console.log(metrics);
   return (
-    <table>
+    <table className="metric-table">
       <thead>
-        <tr>
+        <tr className="metric-table-header">
           <th colSpan="2">{header}</th>
         </tr>
       </thead>
@@ -16,14 +15,7 @@ export const MetricTable = ({ variable, metricData, metricPrefix }) => {
           const rowData = { label: metric, value: metrics[metric].value };
           const key = variable + '.' + metrics[metric].name;
           //console.log(key);
-          return (
-            <MetricTableRow
-              key={key}
-              rowData={rowData}
-              format={format}
-              prefix={metricPrefix}
-            />
-          );
+          return <MetricTableRow key={key} rowData={rowData} format={format} />;
         })}
       </tbody>
     </table>
