@@ -1,7 +1,7 @@
 import React from 'react';
 import { MetricTableRow } from './MetricTableRow';
 
-export const MetricTable = ({ variable, metricData }) => {
+export const MetricTable = ({ variable, metricData, showOnly }) => {
   const { header, metrics, format } = metricData;
   return (
     <table className="metric-table">
@@ -14,8 +14,11 @@ export const MetricTable = ({ variable, metricData }) => {
         {Object.keys(metrics).map((metric) => {
           const rowData = { label: metric, value: metrics[metric].value };
           const key = variable + '.' + metrics[metric].name;
-          //console.log(key);
-          return <MetricTableRow key={key} rowData={rowData} format={format} />;
+          if (showOnly.length && showOnly.includes(metric)) {
+            return (
+              <MetricTableRow key={key} rowData={rowData} format={format} />
+            );
+          }
         })}
       </tbody>
     </table>
