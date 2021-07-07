@@ -15,7 +15,7 @@ export const MetricTable = ({ variable, metricData, metricPrefix }) => {
         {Object.keys(metrics).map((metric) => {
           const rowData = { label: metric, value: metrics[metric].value };
           const key = variable + '.' + metrics[metric].name;
-          console.log(key);
+          //console.log(key);
           return (
             <MetricTableRow
               key={key}

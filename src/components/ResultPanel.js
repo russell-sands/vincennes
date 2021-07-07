@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ResultOverview } from './ResultOverview';
 import { VariableInfo } from './VariableInfo';
 import { getRiskData2 } from './utils/resultParsing';
@@ -19,7 +19,17 @@ export const ResultPanel = ({ data }) => {
       <div className="sidebar-container">
         <div className="sidebar-content">
           <ResultOverview data={data} />
-          <VariableInfo variableData={riskData} />
+          {Object.keys(riskData).map((riskName) => {
+            //console.log(riskName);
+            const riskMetrics = riskData[riskName];
+            return (
+              <VariableInfo
+                key={riskName}
+                variable={riskName}
+                variableData={riskMetrics}
+              />
+            );
+          })}
         </div>
       </div>
     );

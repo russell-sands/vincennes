@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatDecimal, formatNumber } from './utils/formaters';
+import { formatNumber } from './utils/formaters';
 import './styles.css';
 
 export const ResultSummary = ({ data }) => {

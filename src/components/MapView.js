@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { createMapView } from './utils/map';
 import { addSearchToView } from './utils/search';
 import { getAttributes } from './utils/getAttributes';
 import '@arcgis/core/assets/esri/themes/light/main.css';
-import { styles } from './styles.js';
 import './styles.css';
 
 /*
