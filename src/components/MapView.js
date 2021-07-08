@@ -12,13 +12,14 @@ TODO:
 
 export const MapView = (props) => {
   const mapRef = useRef();
-  const qUrl =
-    'https://services1.arcgis.com/zRnwqnVJ5RJfCCJT/arcgis/rest/services/NRI_Counties_2020_October_Dashboard/FeatureServer/0';
+  //const myUrl = 'https://services1.arcgis.com/zRnwqnVJ5RJfCCJT/arcgis/rest/services/NRI_Counties_2020_October_Dashboard/FeatureServer/0';
+  const femaTractURL =
+    'https://hazards.geoplatform.gov/server/rest/services/Hosted/NRI_Tracts_%28October_2020%29/FeatureServer/0';
   useEffect(() => {
     const view = createMapView(mapRef.current, props.basemap, props.zoom);
     const search = addSearchToView(view);
     search.on('search-complete', async (e) => {
-      const attributes = await getAttributes(qUrl, e);
+      const attributes = await getAttributes(femaTractURL, e);
       props.onQuery(attributes);
     });
     return () => {

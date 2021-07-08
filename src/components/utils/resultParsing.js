@@ -47,10 +47,6 @@ export const getFullName = (baseName) => {
   return basesToName[baseName];
 };
 
-const makeCategoryObject = (header, format) => {
-  return { header, format, metrics: {} };
-};
-
 export const getRiskData2 = (data) => {
   //console.log(metricCategories, Object.keys(metricCategories));
   const bases = Object.keys(basesToName);
@@ -60,6 +56,11 @@ export const getRiskData2 = (data) => {
 
   // Populate the object with entries for each variable base name
   // and metatdata for agriculture based on the variable base name
+  const makeCategoryObject = (header, format) => ({
+    header,
+    format,
+    metrics: {},
+  });
   bases.forEach((base) => {
     restructured[base] = {
       metrics: {
