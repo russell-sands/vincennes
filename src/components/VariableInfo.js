@@ -1,36 +1,24 @@
 import React from 'react';
 import { VariableHeader } from './VariableHeader';
 import { MetricTable } from './MetricTable';
+import {
+  VariableDisplayRated,
+  VariableDisplayUnrated,
+} from './VariableDisplay';
+import * as Constants from './Constants';
 
 // Need to add the logic for handling unrated variables
 
 export const VariableInfo = ({ variable, variableData }) => {
+  const rating = variableData.metrics.riskr;
   // This should probably be somewhere else / handled better
-  const metricsToDisplay = [
-    'Buildings',
-    'Agriculture',
-    'Population',
-    '... Population Equiv.',
-    'Rating',
-  ];
-  return (
-    <div className="variable-info">
-      <VariableHeader variable={variable} rating={variableData.metrics.riskr} />
-      <MetricTable
+  if (Constants.NRI_RATINGS.includes(rating))
+    return (
+      <VariableDisplayRated
         variable={variable}
-        metricData={variableData.metrics.exposure}
-        showOnly={metricsToDisplay}
+        rating={rating}
+        metricData={variableData}
       />
-      <MetricTable
-        variable={variable}
-        metricData={variableData.metrics.historic}
-        showOnly={metricsToDisplay}
-      />
-      <MetricTable
-        variable={variable}
-        metricData={variableData.metrics.expected}
-        showOnly={metricsToDisplay}
-      />
-    </div>
-  );
+    );
+  return <VariableDisplayUnrated variable={variable} rating={rating} />;
 };

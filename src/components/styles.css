@@ -89,14 +89,28 @@
   order: 1;
 }
 
+.cell-no-rating .cell-not-applicable {
+  background: white;
+}
+
 .variable-info {
   margin: auto;
   width: 300px;
   margin-top: 15px;
   text-align: center;
-  color: white;
+}
+
+.variable-info-rated {
   border: 1px solid black;
+  color: white;
   border-radius: 5px 5px 0px 0px;
+}
+
+.variable-info-unrated {
+  border: 1px solid gray;
+  border-radius: 5px 5px 5px 5px;
+  background: gainsboro;
+  color: black;
 }
 
 .variable-header {
