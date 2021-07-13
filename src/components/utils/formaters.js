@@ -17,7 +17,7 @@ export const formatAsPercent = (n) => {
   return formatDecimal(n, true) + '%';
 };
 
-export const formatNumber = (n) => {
+export const formatNumber = (n, decorator) => {
   // format a number with prefixing.
   let factor = 1;
   let suffixKey = '0';
@@ -25,7 +25,7 @@ export const formatNumber = (n) => {
   const digits = wholePart.length;
   const suffixLookup = {
     0: '',
-    1: 'K',
+    1: 'k',
     2: 'M',
     3: 'B',
     4: 'T',
@@ -51,11 +51,12 @@ export const formatNumber = (n) => {
     factored = (factored / 1000).toFixed(1);
   }
   // Get the output
-  let output = '';
+  decorator = decorator ? decorator : '';
+  let output;
   if (factored < 1) {
-    output = '<1';
+    output = `<${decorator}1`;
   } else {
-    output = String(factored) + suffixLookup[suffixKey];
+    output = decorator + String(factored) + suffixLookup[suffixKey];
   }
   return output;
 };
