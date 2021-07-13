@@ -5,7 +5,7 @@ import { getRiskData } from './utils/parsing';
 
 export const DisplayResult = ({ data }) => {
   const riskData = getRiskData(data);
-  console.log('risk data', riskData);
+  //console.log('risk data', riskData);
   return (
     <>
       <ResultOverview data={data} />
