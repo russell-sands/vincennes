@@ -3,6 +3,9 @@ import { MetricTableRow } from './MetricTableRow';
 
 export const MetricTable = ({ variable, metricData, showOnly }) => {
   const { header, metrics, format } = metricData;
+  const metricsToDisplay = Object.keys(metricData).filter(
+    (metric) => showOnly.length === showOnly.includes(metric)
+  );
   return (
     <table className="metric-table">
       <thead>
@@ -15,6 +18,10 @@ export const MetricTable = ({ variable, metricData, showOnly }) => {
           const rowData = { label: metric, value: metrics[metric].value };
           const key = variable + '.' + metrics[metric].name;
           if (showOnly.length && showOnly.includes(metric)) {
+            return (
+              <MetricTableRow key={key} rowData={rowData} format={format} />
+            );
+          } else if (!showOnly.length) {
             return (
               <MetricTableRow key={key} rowData={rowData} format={format} />
             );

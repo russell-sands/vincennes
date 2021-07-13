@@ -47,7 +47,7 @@ export const getFullName = (baseName) => {
   return basesToName[baseName];
 };
 
-export const getRiskData2 = (data) => {
+export const getRiskData = (data) => {
   //console.log(metricCategories, Object.keys(metricCategories));
   const bases = Object.keys(basesToName);
 
@@ -96,32 +96,3 @@ export const getRiskData2 = (data) => {
   });
   return restructured;
 };
-
-/*
-export const getRiskData = (data) => {
-  const bases = Object.keys(basesToName);
-
-  // Bases where agriculture data is returned
-  const basesAg = ['cwav', 'drgt', 'hail', 'rfld', 'swnd'];
-  // Bases where agriculture data is the only data returned
-  const basesAgOnly = ['drgt'];
-
-  // Create the resturctured data and prepopulate it with entries for the base name
-  // of each measured type of risk
-  const restructured = {};
-  bases.forEach((base) => (restructured[base] = { subMetrics: {} }));
-  Object.keys(data).forEach((k) => {
-    const [base, metric] = k.split('_');
-    // Filter out any variables that aren't associated with a risk metric
-    if (!bases.includes(base)) return;
-    restructured[base].hasAgData = basesAg.includes(base);
-    restructured[base].hasAgDataOnly = basesAgOnly.includes(base);
-    if (allComponentMetrics.includes(metric)) {
-      restructured[base].subMetrics[metric] = data[k];
-    } else {
-      restructured[base][metric] = data[k];
-    }
-  });
-  return restructured;
-};
-*/

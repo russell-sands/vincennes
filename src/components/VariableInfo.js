@@ -1,6 +1,4 @@
 import React from 'react';
-import { VariableHeader } from './VariableHeader';
-import { MetricTable } from './MetricTable';
 import {
   VariableDisplayRated,
   VariableDisplayUnrated,

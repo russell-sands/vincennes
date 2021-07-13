@@ -22,10 +22,7 @@
   overflow-x: auto;
   overflow-y: auto;
   padding-top: 20px;
-}
-
-.sidebar-content {
-  padding: 9px;
+  padding-left: 9px;
 }
 
 .flex-container-row {
