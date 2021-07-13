@@ -23,6 +23,18 @@
   overflow-y: auto;
   padding-top: 20px;
   padding-left: 9px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.display-initial,
+.display-no-data {
+  height: 100%;
+  width: 100%;
+  align-content: center;
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+  font-size: 1.7rem;
 }
 
 .flex-container-row {
