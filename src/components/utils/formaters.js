@@ -1,20 +1,21 @@
 // Utils for formatting issues related to the way data is stored in the NRI data
 
-export const formatDecimal = (n, convertRatioToPct) => {
+export const formatDecimal = (n, decorator, convertRatioToPct) => {
   // format decimals to 2 digits and handle ratios
   if (convertRatioToPct) n = n * 100;
+  decorator = decorator ? decorator : '';
   let result = n.toFixed(2);
   let prefix = '';
   if (result === 0 && n > 0) {
     prefix = '<';
     result = '0.01';
   }
-  return prefix + result;
+  return prefix + decorator + result;
 };
 
 // Special case to make formating ratios easier
-export const formatAsPercent = (n) => {
-  return formatDecimal(n, true) + '%';
+export const formatAsPercent = (n, decorator) => {
+  return formatDecimal(n, decorator, true) + '%';
 };
 
 export const formatNumber = (n, decorator) => {

@@ -24,11 +24,11 @@ const basesToName = {
 };
 
 const categoryLookup = {
-  hlr: { category: 'historic' },
-  exp: { category: 'exposure' },
-  eal: { category: 'expected' },
-  evn: { category: 'frequency' },
-  afr: { category: 'frequency' },
+  hlr: 'historic',
+  exp: 'exposure',
+  eal: 'expected',
+  evn: 'frequency',
+  afr: 'frequency',
 };
 
 const labelLookup = {
@@ -43,12 +43,14 @@ const labelLookup = {
   s: 'Score',
 };
 
+const dollarMetrics = ['Buildings', 'Agriculture', '... Population Equiv.'];
+const dollarCategories = ['exposure', 'expected'];
+
 export const getFullName = (baseName) => {
   return basesToName[baseName];
 };
 
 export const getRiskData = (data) => {
-  //console.log(metricCategories, Object.keys(metricCategories));
   const bases = Object.keys(basesToName);
 
   // Create an object to hold the restructured data
@@ -77,22 +79,21 @@ export const getRiskData = (data) => {
     const [base, metric] = k.split('_');
     // Filter out any variables that aren't associated with a risk metric
     if (!bases.includes(base)) return;
-    // console.log(k);
-    // console.log(data[k]);
-    // Restructure the risk variable's metric data
-    const categoryInfo = categoryLookup[metric.slice(0, 3)];
+    const category = categoryLookup[metric.slice(0, 3)];
     const metricLabel = labelLookup[metric.slice(3)];
-    //console.log(k, metric, categoryInfo, metricLabel);
-    if (categoryInfo?.category) {
-      //console.log(base, categoryInfo.category, metricLabel, metric, data[k]);
-      restructured[base].metrics[categoryInfo.category].metrics[metricLabel] = {
+    const decorator =
+      dollarMetrics.includes(metricLabel) && dollarCategories.includes(category)
+        ? '$'
+        : '';
+    if (category) {
+      restructured[base].metrics[category].metrics[metricLabel] = {
         name: metric,
+        decorator,
         value: data[k],
       };
     } else {
       restructured[base].metrics[metric] = data[k];
     }
-    //console.log(restructured);
   });
   return restructured;
 };

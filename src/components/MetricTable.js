@@ -15,7 +15,7 @@ export const MetricTable = ({ variable, metricData, showOnly }) => {
       </thead>
       <tbody>
         {Object.keys(metrics).map((metric) => {
-          const rowData = { label: metric, value: metrics[metric].value };
+          const rowData = { label: metric, ...metrics[metric] };
           const key = variable + '.' + metrics[metric].name;
           if (showOnly.length && showOnly.includes(metric)) {
             return (
