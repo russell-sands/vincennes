@@ -18,7 +18,6 @@ export const MapView = (props) => {
     const view = createMapView(mapRef.current, props.basemap, props.zoom);
     const search = addSearchToView(view);
     search.on('search-complete', async (e) => {
-      console.log(e);
       const matchAddr = e.results[0].results[0]?.feature.attributes.Match_addr;
       let attributes = {};
       if (matchAddr) {

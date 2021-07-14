@@ -10,7 +10,6 @@ export const SidePanel = ({ data }) => {
   return (
     <div className="sidebar-container">
       {(() => {
-        console.log(data);
         if (data?.nri_id) {
           return <DisplayResult data={data} />;
         } else if (Object.keys(data).length) {
