@@ -22,6 +22,9 @@ export const MapView = (props) => {
       const attributes = await getAttributes(femaTractURL, e);
       props.onQuery(attributes);
     });
+    search.on('search-clear', async (e) => {
+      props.onQuery([]);
+    });
     return () => {
       view && view.destroy();
       search && search.destroy();
