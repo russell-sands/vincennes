@@ -14,5 +14,5 @@ export const getAttributes = async (layerUrl, searchResult) => {
     geometryType: 'esriGeometryPoint',
     spatialRel: 'esriSpatialRelIntersects',
   });
-  return response.features[0]?.attributes;
+  return response.features[0]?.attributes || {};
 };

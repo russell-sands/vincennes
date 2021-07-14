@@ -10,14 +10,13 @@ export const SidePanel = ({ data }) => {
   return (
     <div className="sidebar-container">
       {(() => {
-        if (data) {
-          if (Object.keys(data).length > 0) {
-            return <DisplayResult data={data} />;
-          } else {
-            return <DisplayInitial />;
-          }
+        console.log(data);
+        if (data?.nri_id) {
+          return <DisplayResult data={data} />;
+        } else if (data?.matchAddr) {
+          return <DisplayNoData address={data.matchAddr} />;
         } else {
-          return <DisplayNoData />;
+          return <DisplayInitial />;
         }
       })()}
     </div>
