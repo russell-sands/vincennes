@@ -4,12 +4,17 @@ import './styles.css';
 
 export const ResultHeader = ({ data }) => {
   return (
-    <>
-      <h1>{`${data.matchAddr}`}</h1>
+    <div className="result-header centered">
       <div>
-        <p>{`Overall Risk Rating for Census Tract ${data.tract}`}</p>
-        <ScoreBar rating={data.risk_ratng} />
+        <span className="result-header-address">{`${data.matchAddr}`}</span>
+        <br />
+        <span className="result-header-content">
+          {`Overall Risk Rating for Census Tract ${data.tract}`}
+          <span className="rating-bar-overall">
+            <ScoreBar rating={data.risk_ratng} />
+          </span>
+        </span>
       </div>
-    </>
+    </div>
   );
 };

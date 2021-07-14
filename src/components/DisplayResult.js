@@ -9,6 +9,7 @@ export const DisplayResult = ({ data }) => {
   return (
     <>
       <ResultOverview data={data} />
+      <p className="centered result-header-content">Risk Metrics</p>
       {Object.keys(riskData).map((riskName) => {
         const riskMetrics = riskData[riskName];
         return (

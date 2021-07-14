@@ -5,8 +5,8 @@ import './styles.css';
 
 export const ResultSummary = ({ data }) => {
   return (
-    <div>
-      <h4>Overview</h4>
+    <div className="result-summary">
+      <p className="centered">Rating Summary</p>
       <p>
         As of {data.nri_ver}, the total population of tract {data.tract} was{' '}
         <KeyFact fact={formatNumber(data.population)} />. Within this cencus
@@ -22,7 +22,6 @@ export const ResultSummary = ({ data }) => {
         The community resiliance in this tract was rated as{' '}
         <KeyFact fact={data.resl_ratng} />.
       </p>
-      <p>&nbsp;</p>
     </div>
   );
 };
