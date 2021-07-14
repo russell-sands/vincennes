@@ -1,16 +1,15 @@
-import Map from '@arcgis/core/Map';
+import WebMap from '@arcgis/core/WebMap';
 import MapView from '@arcgis/core/views/MapView';
+import * as Constants from '../Constants';
 
 export const createMapView = (ref, basemap, zoom) => {
-  const map = new Map({
-    basemap: basemap,
+  const webmap = new WebMap({
+    portalItem: { id: Constants.NRI_MAP_ID },
   });
 
   const view = new MapView({
     container: ref,
-    map: map,
-    center: [-118, 34],
-    zoom: zoom,
+    map: webmap,
   });
   return view;
 };

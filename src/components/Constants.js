@@ -14,6 +14,8 @@ export const DISPLAY_METRICS = [
   'Rating',
 ];
 
+export const NRI_MAP_ID = 'db4498cd26fd4c23beab88b1b7b91cf4';
+
 export const NRI_TRACT_URL =
   'https://hazards.geoplatform.gov/server/rest/services/Hosted/NRI_Tracts_%28October_2020%29/FeatureServer/0';
 
