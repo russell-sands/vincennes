@@ -1,6 +1,5 @@
 import { render } from 'react-dom';
 import { useState } from 'react';
-//import { Interact } from './components/Interact';
 import { MapView } from './components/MapView';
 import { SidePanel } from './components/SidePanel';
 import './components/styles.css';
