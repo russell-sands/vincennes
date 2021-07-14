@@ -5,9 +5,11 @@ import './styles.css';
 export const ResultHeader = ({ data }) => {
   return (
     <>
-      <h1>{`${data.county}, ${data.state}`}</h1>
-      <p>{`Census Tract ${data.tract}`}</p>
-      <ScoreBar rating={data.risk_ratng} />
+      <h1>{`${data.matchAddr}`}</h1>
+      <div>
+        <p>{`Overall Risk Rating for Census Tract ${data.tract}`}</p>
+        <ScoreBar rating={data.risk_ratng} />
+      </div>
     </>
   );
 };
