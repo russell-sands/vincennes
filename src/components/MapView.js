@@ -19,8 +19,11 @@ export const MapView = (props) => {
     const search = addSearchToView(view);
     search.on('search-complete', async (e) => {
       console.log(e);
-      const matchAddr = e.results[0].results[0].feature.attributes.Match_addr;
-      const attributes = await getAttributes(Constants.NRI_TRACT_URL, e);
+      const matchAddr = e.results[0].results[0]?.feature.attributes.Match_addr;
+      let attributes = {};
+      if (matchAddr) {
+        attributes = await getAttributes(Constants.NRI_TRACT_URL, e);
+      }
       attributes.matchAddr = matchAddr;
       props.onQuery(attributes);
     });
