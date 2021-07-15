@@ -1,5 +1,4 @@
 import { resultToGeometry } from './search';
-import FeatureFilter from '@arcgis/core/views/layers/support/FeatureFilter';
 
 export const getLayerView = async (view, layerViewName) => {
   const layerView = view.when(() => {
