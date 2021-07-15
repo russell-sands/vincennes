@@ -4,7 +4,6 @@ import { ResultSummary } from './ResultSummary';
 import * as Constants from './Constants';
 
 export const ResultOverview = ({ data }) => {
-  console.log(data);
   return (
     <>
       {(() => {
