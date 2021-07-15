@@ -1,5 +1,6 @@
 import WebMap from '@arcgis/core/WebMap';
 import MapView from '@arcgis/core/views/MapView';
+import Home from '@arcgis/core/widgets/Home';
 import * as Constants from '../Constants';
 
 export const createMapView = (ref, basemap, zoom) => {
@@ -11,6 +12,12 @@ export const createMapView = (ref, basemap, zoom) => {
     container: ref,
     map: webmap,
   });
+
+  const homeButton = new Home({
+    view: view,
+  });
+
+  view.ui.add(homeButton, 'top-left');
 
   return view;
 };
