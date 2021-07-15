@@ -8,9 +8,9 @@ export const ResultSummary = ({ data }) => {
     <div className="result-summary">
       <p className="centered">Rating Summary</p>
       <p>
-        As of {data.nri_ver}, the total population of tract {data.tract} was{' '}
-        <KeyFact fact={formatNumber(data.population)} />. Within this cencus
-        tract, the total building value was{' '}
+        As of {data.nri_ver}, tract {data.tract} had a total population of{' '}
+        <KeyFact fact={formatNumber(data.population, '', true)} />. Within this
+        cencus tract, the total building value was{' '}
         <KeyFact fact={`${formatNumber(data.buildvalue, '$')}`} />, and the
         total agricultural value was{' '}
         <KeyFact fact={`${formatNumber(data.agrivalue, '$')}`} />.

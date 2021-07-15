@@ -18,8 +18,9 @@ export const formatAsPercent = (n, decorator) => {
   return formatDecimal(n, decorator, true) + '%';
 };
 
-export const formatNumber = (n, decorator) => {
+export const formatNumber = (n, decorator, isInteger) => {
   // format a number with prefixing.
+  const decimals = isInteger || n === 0 ? 0 : 1;
   let factor = 1;
   let suffixKey = '0';
   const wholePart = String(Math.trunc(n));
@@ -44,17 +45,17 @@ export const formatNumber = (n, decorator) => {
     factor = 1000000000000;
     suffixKey = 4;
   }
-  let factored = (Number(wholePart) / factor).toFixed(1);
+  let factored = (Number(wholePart) / factor).toFixed(decimals);
   // Handle when "round up" pushes us to another scale
   if (factored >= 1000) {
     // Max out at 4
     suffixKey = Math.min(4, suffixKey + 1);
-    factored = (factored / 1000).toFixed(1);
+    factored = (factored / 1000).toFixed(decimals);
   }
   // Get the output
   decorator = decorator ? decorator : '';
   let output;
-  if (factored < 1) {
+  if (factored < 1 && n > 0) {
     output = `<${decorator}1`;
   } else {
     output = decorator + String(factored) + suffixLookup[suffixKey];
