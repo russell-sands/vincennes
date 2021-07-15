@@ -11,3 +11,13 @@ export const addSearchToView = (view) => {
   });
   return search;
 };
+
+export const resultToGeometry = (searchResult) => {
+  return {
+    x: searchResult.results[0].results[0].feature.geometry.x,
+    y: searchResult.results[0].results[0].feature.geometry.y,
+    spatialReference: {
+      wkid: searchResult.results[0].results[0].feature.geometry.wkid,
+    },
+  };
+};

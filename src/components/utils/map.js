@@ -11,5 +11,6 @@ export const createMapView = (ref, basemap, zoom) => {
     container: ref,
     map: webmap,
   });
+
   return view;
 };
