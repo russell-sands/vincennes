@@ -6,7 +6,9 @@ export const DisplayInitial = () => {
     <div className="result-header centered">
       <span className="result-header-address">
         Use the search bar to explore FEMA's{' '}
-        <a href={Constants.ABOUT_NRI_URL}>National Risk Index</a>
+        <a href={Constants.ABOUT_NRI_URL} target="_blank" rel="noreferrer">
+          National Risk Index
+        </a>
       </span>
     </div>
   );

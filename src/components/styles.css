@@ -10,7 +10,7 @@ h4 {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 60%;
+  width: calc(60% - 18px);
   min-width: calc(100% - 618px);
   max-width: calc(100% - 418px);
 }
@@ -122,7 +122,7 @@ h4 {
 }
 
 .result-header-address {
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 .result-header-content {

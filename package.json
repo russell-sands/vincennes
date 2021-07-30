@@ -1,6 +1,7 @@
 {
   "name": "vincennes-react",
-  "version": "0.1.0",
+  "version": "1.0.1",
+  "homepage": "build",
   "private": true,
   "dependencies": {
     "@arcgis/core": "^4.19.3",
